@@ -1,0 +1,2 @@
+THE FIVE V'S OF DATA ENGINEERING:
+--Volume,velocity,variety,veracity,value.

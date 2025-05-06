@@ -1,0 +1,104 @@
+##commands for git
+*GIT CLONE:It is used to copy the repository from github to local folder .
+--syntax:git clone "link of repository"(after clone leave space).
+
+
+
+##In mangodb the data are stored in bson which means binary json.
+*No SQL has scalalability and flexibility .
+*scalability means the data can be fetched easily without any crash.
+*Flexibility means it can add any column or rows withiut leaving any spaces for previous reducing the storage.
+*CLI-command line interface.
+--multiple rows->entries
+--multiple columns->documents.
+ 
+
+
+--(IF IN CASE THE SERVER IS NOT CONNECTED THEN RUN -NET START MONGODB- IN CMD PRMPT)--
+--press enter twice.
+
+
+commmands for mongodb:
+--show dbs->is used to show database.
+--cls->used for close
+--db.createcollection->is used to create database
+---syntax:db.createCollection("database name").
+
+
+***INSERT ONE METHOD:
+*to insert any values into database the following is used.
+--ex:db.collection name.insertone{
+				  {
+					customer name:"sinch",(for new line press shift+enter)
+                                        car_number:"KA-11 AR8905",
+					car_brand:"fortuner",
+				   }
+				}
+***TO FIND:
+--Syntax:db.collection name.findone({condition});
+
+
+
+***To add multiple data:
+--we have to use insertmany method
+-->syntax:db.car_parking.insertMany{
+  {
+customer_name:"t Anjali",
+car_number:"KA11 f 5678",
+car_brand:"toyata",
+incoming_time:"2025-05-05t14:34:00"
+},
+{
+customer_name:"shweta",
+car_number:"KA11 f 5548",
+car_brand:"mahindra",
+incoming_time:"2025-05-05t14:14:00"
+}
+}
+
+
+**TO UPDATE THE DATA
+-->USE UPDATEONE METHOD
+--EX:db.car_parking.updateOne(
+  {
+customer_name:"t Anjali"},
+    {$set:{customer_name:"ram.m"}}
+
+);
+
+
+**to updateMany:
+-->in this method the collection having a same name will get updated in all its entries
+--for example: in the following the customer name ram is repeated,hence all the entries having ram has its customer name has got updated its car_brand 
+--db.car_parking.updateOne(
+  {
+customer_name:"t Anjali"},
+    {$set:{customer_name:"ram.m"}}
+
+);
+
+**to find whether the updted has changed its data we need to use find method
+--syntax:db.collection name.find()
+-->Ex:db.car_parking.find()
+
+**to find the data whose age is greater than or lesser than to specified age;
+--db.car_parking.find({ age: {$gt:20}})--greater than 20
+--db.car_parking.find({ age: {$lt:20}})->lesser than 20
+--db.car_parking.find({ age: {$gte:20}})-->greater than or eaqual to
+--db.car_parking.find({ age: {$lte:20}})-->lesser than or eaqual to
+
+**to find specific age data:
+----db.car_parking.find(
+{ 
+$and:
+[
+{ 
+age: {$gt:20}},
+{age:{$lt:30}}
+]
+}
+)
+
+--note: (age should not be enclosed with single quotes)
+
+--ls: means listout everything
